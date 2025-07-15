@@ -1,18 +1,17 @@
-name: A Sample template workflow for the Data Natus organisation
+name: Octo Organization CI
 
 on:
   push:
-    - cat
-  workflow_dispatch:
-
-permissions:
-  id-token: write
-  contents: read
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
 jobs:
-  SampleWorkdflowCheck:
-    name: Sample Workflow Template Checkout
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo Hello from Octo Organization
