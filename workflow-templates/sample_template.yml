@@ -1,1 +1,18 @@
+name: A Sample template workflow for the Data Natus organisation
 
+on:
+  push:
+    - cat
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  SampleWorkdflowCheck:
+    name: Sample Workflow Template Checkout
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
